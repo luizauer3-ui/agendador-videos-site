@@ -1,0 +1,11 @@
+<!doctype html><html lang="pt-BR"><head><title>Autorização concluída</title><meta name="robots" content="noindex"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light dark}body{font:16px/1.6 system-ui,sans-serif;max-width:42rem;margin:0 auto;padding:1.5rem 16px 4rem}h1{font-size:1.6rem}h2{font-size:1.15rem;margin-top:2rem}code,.codigo{font-family:ui-monospace,monospace}.codigo{display:block;word-break:break-all;padding:1rem;border:1px solid #8885;border-radius:8px;margin:1rem 0}button{font:inherit;padding:.6rem 1rem;border-radius:8px;border:1px solid #8886;cursor:pointer}small{opacity:.7}</style></head><body>
+<h1 id="t">Autorização</h1><p id="m"></p><code class="codigo" id="c" hidden></code><button id="b" hidden>Copiar código</button>
+<p><small>Este código dá acesso à sua conta por poucos minutos. Não compartilhe com ninguém e não publique.</small></p>
+<script>
+var p=new URLSearchParams(location.search),c=p.get("code"),e=p.get("error");
+var t=document.getElementById("t"),m=document.getElementById("m"),k=document.getElementById("c"),b=document.getElementById("b");
+if(c){t.textContent="Autorização concluída";m.textContent="Copie o código abaixo e cole no passo seguinte. Ele expira em alguns minutos.";k.textContent=c;k.hidden=false;b.hidden=false;
+b.onclick=function(){navigator.clipboard.writeText(c).then(function(){b.textContent="Copiado!"})}}
+else if(e){t.textContent="Autorização recusada";m.textContent=(p.get("error_description")||e)}
+else{m.textContent="Esta página recebe o código de autorização depois que você aprova o acesso."}
+</script></body></html>
